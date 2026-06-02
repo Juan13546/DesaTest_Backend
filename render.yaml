@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: desa-test
+    env: java
+    region: oregon
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/*.jar
