@@ -1,7 +1,10 @@
 package com.desatest.service;
 
-import org.springframework.stereotype.Service;
+import com.desatest.commons.ICrudCommonsDto;
+import com.desatest.dto.UserRequestDto;
+import com.desatest.dto.UserResponseDto;
+import java.util.List;
 
-@Service
-public interface IUserService {
+public interface IUserService extends ICrudCommonsDto<UserRequestDto, UserResponseDto, Long> {
+    List<UserResponseDto> findAll();
 }
