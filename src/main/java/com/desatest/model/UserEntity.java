@@ -1,9 +1,6 @@
 package com.desatest.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +12,19 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
+@NamedStoredProcedureQuery(
+        name = "UserEntity.updateUser",
+        procedureName = "pkg_users.update_user",
+        parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "pc_cod_user", type = Long.class),
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "pc_num_docum", type = String.class),
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "pc_nom_user", type = String.class),
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "pc_ape_paterno", type = String.class),
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "pc_ape_materno", type = String.class),
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "pc_cod_sex", type = Long.class),
+                @StoredProcedureParameter(mode = ParameterMode.IN, name = "pc_address", type = String.class)
+        }
+)
 public class UserEntity {
 
     @Id

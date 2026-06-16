@@ -26,4 +26,8 @@ public class UserController {
     public ResponseEntity<UserResponseDto> save(@RequestBody UserRequestDto userDto){
         return ResponseEntity.status(HttpStatus.CREATED).body(iUserService.save(userDto));
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<UserResponseDto> update(@PathVariable Long id, @RequestBody UserRequestDto userDto){
+        return ResponseEntity.status(HttpStatus.OK).body(iUserService.update(id, userDto));
+    }
 }
