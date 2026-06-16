@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface IUserService extends ICrudCommonsDto<UserRequestDto, UserResponseDto, Long> {
     List<UserResponseDto> findAll();
+
 }

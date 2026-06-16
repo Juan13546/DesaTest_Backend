@@ -1,13 +1,12 @@
 package com.desatest.controller;
 
+import com.desatest.dto.UserRequestDto;
 import com.desatest.dto.UserResponseDto;
 import com.desatest.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +20,10 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<UserResponseDto>> getAll(){
         return ResponseEntity.status(HttpStatus.OK).body(iUserService.findAll());
+    }
+
+    @PostMapping
+    public ResponseEntity<UserResponseDto> save(@RequestBody UserRequestDto userDto){
+        return ResponseEntity.status(HttpStatus.CREATED).body(iUserService.save(userDto));
     }
 }

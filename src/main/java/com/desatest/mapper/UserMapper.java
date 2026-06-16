@@ -28,4 +28,16 @@ public class UserMapper {
                 .toList();
     }
 
+    public UserEntity toEntity(UserRequestDto userRequest){
+        return UserEntity.builder()
+                .codUser(userRequest.getCodUser())
+                .numDocum(userRequest.getNumDocum())
+                .nomUser(userRequest.getNomUser())
+                .apePaterno(userRequest.getApePaterno())
+                .apeMaterno(userRequest.getApeMaterno())
+                .codSex(userRequest.getCodSex())
+                .address(userRequest.getAddress())
+                .build();
+    }
+
 }

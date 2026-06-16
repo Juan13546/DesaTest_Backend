@@ -25,8 +25,10 @@ public class IUserServiceImpl implements IUserService {
     }
 
     @Override
-    public UserResponseDto save(UserRequestDto entity) {
-        return null;
+    public UserResponseDto save(UserRequestDto userDto) {
+        UserEntity entity = userMapper.toEntity(userDto);
+        UserEntity userSaved = iUserRepository.save(entity);
+        return userMapper.toDto(userSaved);
     }
 
     @Override
